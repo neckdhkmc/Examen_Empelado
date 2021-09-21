@@ -1,0 +1,91 @@
+﻿@using Examen_Empelado.Models
+
+@model List<EmpleadoCLS>
+@{
+
+    ViewBag.Title = "Index";
+    List<SelectListItem> listaEstado = (List<SelectListItem>)ViewBag.ListaEstado;
+}
+
+<h2>Lista de empleados</h2>
+
+
+<div class="col-lg-12">
+
+    @using (Html.BeginForm("Index", "Directorio", FormMethod.Post))
+    {
+        @Html.ActionLink("Agregar ", "Agregar", "Empelado", null, new { @class = "fa fa-print btn btn-info float-right" })<br />
+
+        <table class="table table-bordered table-hover" id="tabla">
+            <thead>
+                <tr>
+                    <td>@Html.LabelFor(p => Model[0].id)</td>
+                    <td>@Html.LabelFor(p => Model[0].Nombre)</td>
+                    <td>@Html.LabelFor(p => Model[0].ApellidoPaterno)</td>
+                    <td>@Html.LabelFor(p => Model[0].ApellidoMaterno)</td>
+                    <td>@Html.LabelFor(p => Model[0].NumEmpleado)</td>
+                    <td>@Html.LabelFor(p => Model[0].correo)</td>
+                    <td>@Html.LabelFor(p => Model[0].Telefono)</td>
+                    <td>@Html.LabelFor(p => Model[0].Direccion)</td>
+                    <td>@Html.LabelFor(p => Model[0].FechaNac)</td>
+                    <td>@Html.LabelFor(p => Model[0].NombreEstadoLogico)</td>
+
+                    <td>Operaciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.ApellidoPaterno</td>
+                        <td>@item.ApellidoMaterno</td>
+                        <td>@item.NumEmpleado</td>
+                        <td>@item.correo</td>
+                        <td>@item.Telefono</td>
+                        <td>@item.Direccion</td>
+                        <td>@item.FechaNac</td>
+                        @if (item.NombreEstadoLogico == "Activo")
+                        {
+                            <td class="bg-success">@item.NombreEstadoLogico</td>
+
+                        }
+                        else
+                        {
+                            <td class="bg-danger">@item.NombreEstadoLogico</td>
+                        }
+                        @*<td>@item.NombreEstadoLogico</td>*@
+
+
+                        <td>
+
+
+                            @Html.ActionLink(" ", "Editar", "Empelado", new { id = item.id }, new { @class = "fa fa-pencil btn btn-primary" })
+                            @Html.ActionLink(" ", "Ver", "Directorio", new { id = item.id }, new { @class = "fa fa-eye btn btn-success" })
+                            @Html.ActionLink(" ", "Eliminar", "Empelado", new { id = item.id }, new { @class = "fa fa-trash btn btn-danger" })
+
+                        </td>
+
+
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+
+
+
+    }
+
+</div>
+<div>
+
+    @using (Html.BeginForm("Eliminar", "Empelado", FormMethod.Post, new { @id = "frmEliminar" }))
+    {
+        @Html.Hidden("id");
+    }
+</div>
