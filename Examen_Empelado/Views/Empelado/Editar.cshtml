@@ -66,13 +66,13 @@
 
                 @Html.Hidden("dcsd");
                 <button type="submit" class="btn btn-info btn-lg btn-block " @*data-toggle="modal" data-target="#exampleModal"*@>
-                    Registrar
+                    Guardar cambios
                 </button>
             </div>
             <div class="col-lg-6">
                 @Html.Hidden("dcsd");
-                @Html.ActionLink("Regresar", "Index", "Empelados", null, new { @class = "btn btn-danger btn-lg btn-block" })
-
+                @Html.ActionLink("Regresar", "Index", "Empelado", null, new { @class = "btn btn-danger btn-lg btn-block" })
+                
             </div>
 
 
@@ -82,26 +82,7 @@
         </div>
 
     }
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Desea registrar la parte procesal al directorio?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <input type="submit" @*onclick="Agregar()"*@ class="btn btn-primary" value="Registrar" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+ 
 
 
 

@@ -14,9 +14,9 @@
 
     @using (Html.BeginForm("Index", "Directorio", FormMethod.Post))
     {
-        @Html.ActionLink("Agregar ", "Agregar", "Empelado", null, new { @class = "fa fa-print btn btn-info float-right" })<br />
+        @Html.ActionLink("Agregar ", "Agregar", "Empelado", null, new { @class = "fa fa-plus-square btn btn-info float-right" })<br />
 
-        <table class="table table-bordered table-hover" id="tabla">
+        <table class="table table-bordered table-hover" id="tabla" style="margin-top:10px">
             <thead>
                 <tr>
                     <td>@Html.LabelFor(p => Model[0].id)</td>
@@ -62,7 +62,6 @@
 
 
                             @Html.ActionLink(" ", "Editar", "Empelado", new { id = item.id }, new { @class = "fa fa-pencil btn btn-primary" })
-                            @Html.ActionLink(" ", "Ver", "Directorio", new { id = item.id }, new { @class = "fa fa-eye btn btn-success" })
                             @Html.ActionLink(" ", "Eliminar", "Empelado", new { id = item.id }, new { @class = "fa fa-trash btn btn-danger" })
 
                         </td>
